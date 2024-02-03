@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище dbComputerServiceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Запчасти">
+          <Key>
+            <PropertyRef Name="zapId" />
+          </Key>
+          <Property Name="zapId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="название" Type="char" MaxLength="100" />
+          <Property Name="количество" Type="varchar" MaxLength="10" />
+          <Property Name="цена" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="Хранилище dbComputerServiceModelContainer">
+          <EntitySet Name="Запчасти" EntityType="Self.Запчасти" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbComputerServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Запчасти">
+          <Key>
+            <PropertyRef Name="zapId" />
+          </Key>
+          <Property Name="zapId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="название" Type="String" MaxLength="100" FixedLength="true" Unicode="false" />
+          <Property Name="количество" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="цена" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="dbComputerServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Запчасти" EntityType="Self.Запчасти" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище dbComputerServiceModelContainer" CdmEntityContainer="dbComputerServiceEntities">
+          <EntitySetMapping Name="Запчасти">
+            <EntityTypeMapping TypeName="dbComputerServiceModel.Запчасти">
+              <MappingFragment StoreEntitySet="Запчасти">
+                <ScalarProperty Name="zapId" ColumnName="zapId" />
+                <ScalarProperty Name="название" ColumnName="название" />
+                <ScalarProperty Name="количество" ColumnName="количество" />
+                <ScalarProperty Name="цена" ColumnName="цена" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
